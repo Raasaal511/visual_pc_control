@@ -1,0 +1,7 @@
+comtypes==1.2.0
+mediapipe==0.10.2
+numpy==1.25.1
+opencv_contrib_python==4.8.0.74
+opencv_python==4.8.0.74
+pycaw==20230407
+sounddevice==0.4.6
