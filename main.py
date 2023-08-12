@@ -1,13 +1,13 @@
 import cv2
 
-from capture import HandGestureAudioControl
+from capture import Capture
 
 
 
 def main():
-    hand_gesture_audio_control = HandGestureAudioControl()
+    capture = Capture()
 
-    hand_gesture_audio_control.get_camera_capture()
+    capture.get_camera_capture()
     
 
 if __name__ == "__main__":
