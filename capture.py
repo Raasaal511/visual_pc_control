@@ -19,7 +19,7 @@ class Capture:
 		volume_control = VolumeControl()
 
 		if not self.cap.isOpened():
-			raise Exception("Ошибка: не удалось открыть камеру.")
+			raise ValueError("Ошибка: не удалось открыть камеру.")
 
 		while True:
 			ret, image = self.cap.read()

@@ -29,12 +29,15 @@ class HandControl:
 				for id, lm in enumerate(hand_lms.landmark):
 					h, w, _ = image.shape
 					cx, cy = int(lm.x * w), int(lm.y * h)
-					cv2.putText(image, f'{id}', (cx, cy), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 255), 1, cv2.LINE_AA)
+					cv2.putText(image, f'{id}', (cx, cy), cv2.FONT_HERSHEY_PLAIN,
+								1, (255, 0, 255), 1, cv2.LINE_AA)
 
 				distance = self.get_finger_distance(hand_lms, w, h)
-				cv2.putText(image, f'Distance: {distance}', (30, 30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 255), 1, cv2.LINE_AA)
+				audio = volume_control.set_volume_control(distance)
 
+				cv2.putText(image, f'Distance: {distance}', (30, 30), cv2.FONT_HERSHEY_PLAIN,
+							1, (255, 0, 255), 1, cv2.LINE_AA)
+				cv2.putText(image, f'Volume: {audio}', (30, 60), cv2.FONT_HERSHEY_PLAIN,
+							1, (255, 255, 255), 1, cv2.LINE_AA)
 				self.draw.draw_landmarks(image, hand_lms, mp.solutions.hands.HAND_CONNECTIONS)
 
-				audio = volume_control.set_volume_control(distance)
-				cv2.putText(image, f'Volume: {audio}', (30, 60), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 255), 1, cv2.LINE_AA)

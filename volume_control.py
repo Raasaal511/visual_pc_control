@@ -1,7 +1,3 @@
-import cv2
-import math
-import mediapipe as mp
-import sounddevice as sd
 import numpy as np
 
 from ctypes import cast, POINTER
